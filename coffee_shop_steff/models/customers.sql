@@ -1,3 +1,7 @@
+{{ config(
+    materialized = 'table'
+)}}
+
 select 
   o.customer_id,
   c.name,
@@ -14,4 +18,3 @@ inner join
    group by customer_id) o
 on c.id = o.customer_id
 order by o.first_order_at
-limit 5
